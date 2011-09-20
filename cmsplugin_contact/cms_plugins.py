@@ -88,6 +88,7 @@ class ContactPlugin(CMSPluginBase):
         email_message = EmailMessage(
             render_to_string("cmsplugin_contact/subject.txt", {
                 'subject': subject,
+                'email': form.cleaned_data['email'],
             }).splitlines()[0],
             render_to_string("cmsplugin_contact/email.txt", {
                 'data': form.cleaned_data,
